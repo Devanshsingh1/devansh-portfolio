@@ -1,0 +1,200 @@
+:root {
+  --bg: #05070c;
+  --primary: #00eaff;
+  --secondary: #6f7cff;
+  --glass: rgba(255, 255, 255, 0.06);
+  --border: rgba(255, 255, 255, 0.14);
+  --text: #e6f1ff;
+  --muted: #8aa0c8;
+  --hover: rgba(0, 234, 255, 0.2);
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background: radial-gradient(circle at top, #0b1020, var(--bg));
+  color: var(--text);
+  overflow-x: hidden;
+}
+
+.scanlines::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(255,255,255,0.02),
+    rgba(255,255,255,0.02) 1px,
+    transparent 1px,
+    transparent 3px
+  );
+  z-index: 9999;
+}
+
+nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 20px 6vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  backdrop-filter: blur(14px);
+  background: rgba(5,7,12,0.6);
+  border-bottom: 1px solid var(--border);
+  z-index: 1000;
+}
+
+nav .logo {
+  font-family: 'Orbitron', sans-serif;
+  letter-spacing: 0.15em;
+  color: var(--primary);
+}
+
+nav a {
+  margin-left: 26px;
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color 0.3s;
+}
+
+nav a:hover, nav a:focus { color: var(--primary); outline: 2px solid var(--primary); }
+
+section {
+  padding: 140px 8vw 120px;
+  position: relative;
+  background: linear-gradient(rgba(5,7,12,0.85), rgba(5,7,12,0.95));
+}
+
+h1, h2, h3 {
+  font-family: 'Orbitron', sans-serif;
+  letter-spacing: 0.08em;
+}
+
+h2 {
+  font-size: 2.3rem;
+  margin-bottom: 40px;
+  color: var(--primary);
+}
+
+#hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background:
+    linear-gradient(rgba(5,7,12,0.75), rgba(5,7,12,0.9)),
+    url('https://source.unsplash.com/1600x900/?futuristic,cybersecurity');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  animation: fadeIn 2s ease-in;
+}
+
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+.subtitle { color: var(--muted); }
+.tagline { color: var(--secondary); font-family: 'Orbitron'; }
+
+.status {
+  display: inline-block;
+  padding: 14px 28px;
+  border: 1px solid var(--border);
+  background: var(--glass);
+  border-radius: 50px;
+  margin-top: 20px;
+}
+
+.resume-btn {
+  display: inline-block;
+  margin-top: 26px;
+  padding: 14px 34px;
+  border-radius: 50px;
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  color: #000;
+  font-weight: 600;
+  text-decoration: none;
+  transition: transform 0.3s;
+}
+
+.resume-btn:hover { transform: scale(1.05); }
+
+.card {
+  background: var(--glass);
+  border: 1px solid var(--border);
+  border-radius: 26px;
+  padding: 40px;
+  backdrop-filter: blur(16px);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover { transform: translateY(-5px); box-shadow: 0 12px 40px rgba(0,0,0,0.4); }
+
+.grid { display: grid; gap: 30px; }
+.grid-2 { grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); }
+.grid-3 { grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+
+/* Contact Form Styles */
+#contact input, #contact textarea {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--glass);
+  color: var(--text);
+  font-family: inherit;
+}
+
+#contact button {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  background: var(--primary);
+  color: #000;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+#contact button:hover { background: var(--secondary); }
+
+/* Scroll to Top Button */
+#scrollTop {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: var(--primary);
+  color: #000;
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  display: none;
+  z-index: 1001;
+}
+
+footer {
+  text-align: center;
+  padding: 60px 20px;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+canvas { position: fixed; inset: 0; z-index: -1; }
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  nav { padding: 20px 4vw; }
+  section { padding: 100px 4vw 80px; }
+  h2 { font-size: 2rem; }
+  .grid-2 { grid-template-columns: 1fr; }
+  .grid-3 { grid-template-columns: repeat(2, 1fr); }
+  #scrollTop { display: block; } /* Show on mobile */
+}

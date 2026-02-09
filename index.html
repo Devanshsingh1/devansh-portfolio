@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Devansh Singh’s Digital Portfolio: IT Analyst specializing in Cybersecurity & Networks." />
+  <title>Devansh Singh’s Digital Portfolio</title>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Three.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+  <!-- reCAPTCHA Script (for anti-spam) -->
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+  <!-- Link to External CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="scanlines">
+
+<canvas id="bg" aria-hidden="true"></canvas>
+
+<nav>
+  <div class="logo">DS5</div>
+  <div>
+    <a href="#hero">Home</a>
+    <a href="#about">Identity</a>
+    <a href="#experience">Experience</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#certs">Certifications</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<section id="hero">
+  <div>
+    <h1>Devansh Singh</h1>
+    <div class="subtitle">IT Analyst • Cybersecurity & Networks</div>
+    <div class="tagline">Enterprise IT with a Cyber Core</div>
+    <div class="status" aria-label="Current status">🟢 Incoming ICT Service Centre Analyst — Queensland Police Service (1 March 2026)</div>
+    <br>
+    <a class="resume-btn" href="Resume-DevanshSingh.pdf" download aria-label="Download Resume">Download Resume</a>
+  </div>
+</section>
+
+<section id="about">
+  <h2>Digital Identity</h2>
+  <div class="card">
+    <p>IT Analyst with a Master’s in Cybersecurity & Networks and enterprise experience across IT support, data engineering, automation, and security analysis. Passionate about building secure, efficient systems.</p>
+    <a href="#contact" style="color: var(--primary);">Get in Touch</a>
+  </div>
+</section>
+
+<section id="experience">
+  <h2>Professional Experience</h2>
+  <div class="grid grid-2">
+    <div class="card">
+      <h3>Junior Technical Data Engineer — Thomson Environmental Systems</h3>
+      <p>Handled data pipelines and automation for environmental monitoring systems.</p>
+    </div>
+    <div class="card">
+      <h3>Network Design Intern — Woodfordia Inc</h3>
+      <p>Designed and optimized network architectures for enterprise clients.</p>
+    </div>
+    <div class="card">
+      <h3>Pre-Sales IT Security Intern — Regent Digitech</h3>
+      <p>Assisted in security assessments and client presentations.</p>
+    </div>
+    <div class="card">
+      <h3>Database Marketing Analyst — FPW Group</h3>
+      <p>Analyzed marketing data and automated reporting processes.</p>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <h2>Core Capabilities</h2>
+  <div class="grid grid-3">
+    <div class="card">Active Directory • Microsoft 365 • L2 Support</div>
+    <div class="card">Pentesting • Networking • ISO 27001</div>
+    <div class="card">Python • Data • Automation</div>
+  </div>
+</section>
+
+<section id="projects">
+  <h2>Projects</h2>
+  <div class="grid grid-2">
+    <div class="card">
+      <h3>MQ-2 Harmful Gas Analyser System at QUT</h3>
+      <p>Developed a sensor-based system for gas detection using IoT.</p>
+      <a href="#" style="color: var(--primary);">View Details</a>
+    </div>
+    <div class="card">
+      <h3>DDOS Analysis</h3>
+      <p>Conducted in-depth analysis of DDoS attacks and mitigation strategies.</p>
+    </div>
+    <div class="card">
+      <h3>AFL Fuzz Testing</h3>
+      <p>Implemented fuzz testing for software security vulnerabilities.</p>
+    </div>
+    <div class="card">
+      <h3>Enterprise Risk Management</h3>
+      <p>Designed risk frameworks for IT operations.</p>
+    </div>
+  </div>
+</section>
+
+<section id="certs">
+  <h2>Certifications</h2>
+  <div class="grid grid-2">
+    <div class="card">CEH v12 - Certified Ethical Hacker</div>
+    <div class="card">Palo Alto Networks Certified</div>
+    <div class="card">Proofpoint Security Awareness</div>
+  </div>
+</section>
+
+<section id="contact">
+  <h2>Initiate Secure Contact</h2>
+  <div class="card">
+    <form id="contactForm" action="https://formspree.io/f/your-form-id" method="POST">  <!-- Replace with your Formspree endpoint -->
+      <input type="text" name="name" id="name" placeholder="Name" required aria-label="Your Name">
+      <input type="email" name="email" id="email" placeholder="Email" required aria-label="Your Email">
+      <textarea name="message" id="message" placeholder="Message" required aria-label="Your Message"></textarea>
+      <div class="g-recaptcha" data-sitekey="your-recaptcha-site-key"></div>  <!-- Replace with your reCAPTCHA site key -->
+      <button type="submit">Transmit</button>
+    </form>
+  </div>
+</section>
+
+<footer>© 2070 — Devansh Singh | <a href="https://github.com/Devanshsingh1" style="color: var(--primary);">GitHub</a></footer>
+
+<button id="scrollTop" aria-label="Scroll to top">↑</button>
+
+<script>
+  // Three.js Background Animation (Optimized for Mobile)
+  const canvas = document.getElementById('bg');
+  const scene = new THREE.Scene();
+  const camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 1, 1000);
+  const renderer = new THREE.WebGLRenderer({ canvas, alpha: true });
+
+  renderer.setSize(window.innerWidth, window.innerHeight);
+
+  const geometry = new THREE.BufferGeometry();
+  const positions = [];
+
+  for (let i = 0; i < 150; i++) {
+    positions.push((Math.random() - 0.5) * 800, (Math.random() - 0.5) * 800, (Math.random() - 0.5) * 800);
+  }
+
+  geometry.setAttribute('position', new THREE.Float32BufferAttribute(positions, 3));
+  const material = new THREE.PointsMaterial({ color: 0x00eaff, size: 2 });
+  const points = new THREE.Points(geometry, material);
+  scene.add(points);
+
+  camera.position.z = 420;
+
+  function animate() {
+    requestAnimationFrame(animate);
+    scene.rotation.y += 0.0004;
+    renderer.render(scene, camera);
+  }
+
+  animate();
+
+  window.addEventListener('resize', () => {
+    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.updateProjectionMatrix();
+    renderer.setSize(window.innerWidth, window.innerHeight);
+  });
+
+  // Contact Form Functionality (with reCAPTCHA validation)
+  const contactForm = document.getElementById('contactForm');
+  contactForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const name = document.getElementById('name').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const message = document.getElementById('message').value.trim();
+    const recaptchaResponse = grecaptcha.getResponse();
+
+    if (!name || !email || !message) {
+      alert('Please fill in all fields.');
+      return;
+    }
+
+    if (!recaptchaResponse) {
+      alert('Please complete the reCAPTCHA to proceed.');
+      return;
+    }
+
+    // Form will submit to Formspree automatically via the action attribute
+    // On success, Formspree redirects or shows a message; handle via their dashboard
+    alert('Submitting... Your message will be sent securely.');
+    contactForm.submit();  // Manually submit after validation
+  });
+
+  // Scroll to Top Button
+  const scrollTopBtn = document.getElementById('scrollTop');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 300) {
+      scrollTopBtn.style.display = 'block';
+    } else {
+      scrollTopBtn.style.display = 'none';
+    }
+  });
+
+  scrollTopBtn.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  // Resume Download Error Handling
+  const resumeBtn = document.querySelector('.resume-btn');
+  resumeBtn.addEventListener('click', (e) => {
+    // Basic check if file exists (client-side; for production, use server-side validation)
+    fetch('Resume-DevanshSingh.pdf')
+      .then(response => {
+        if (!response.ok) {
+          alert('Resume file not found. Please check the link.');
+          e.preventDefault();
+        }
+      })
+      .catch(() => {
+        alert('Error loading resume. Please try again later.');
+        e.preventDefault();
+      });
+  });
+</script>
+
+</body>
+</html>
